@@ -1,0 +1,42 @@
+body {
+    font-family: 'Courier New', monospace;
+    background-color: #212121;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.quote-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.quote-content {
+    margin-left: 20px;
+}
+
+img {
+    width: 200px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+h1, h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
