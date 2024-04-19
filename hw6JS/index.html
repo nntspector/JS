@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Featured Items</title>
+  <style>
+    /* Стили для товаров */
+    .featured-item {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+    .featured-item img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="featured-items">
+    <!-- Сюда будут добавлены товары -->
+  </div>
+
+  <script>
+    async function loadProducts() {
+      try {
+        const response = await fetch('products.json');
+        const products = await response.json();
+        console.log('Products loaded:', products);
+        displayProducts(products);
+      } catch (error) {
+        console.error('Error loading products:', error);
+      }
+    }
+
+    function displayProducts(products) {
+      const featuredItemsContainer = document.getElementById('featured-items');
+      products.forEach(product => {
+        const productDiv = document.createElement('div');
+        productDiv.classList.add('featured-item');
+        const image = document.createElement('img');
+        image.src = product.image;
+        image.alt = product.name;
+        const title = document.createElement('h3');
+        title.textContent = product.name;
+        const price = document.createElement('p');
+        price.textContent = '$' + product.price;
+        productDiv.appendChild(image);
+        productDiv.appendChild(title);
+        productDiv.appendChild(price);
+        featuredItemsContainer.appendChild(productDiv);
+      });
+    }
+
+    window.onload = loadProducts;
+  </script>
+</body>
+</html>
